@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Manager Team</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: #ffffff; color: #1a1a1a; padding: 24px; max-width: 1400px; margin: 0 auto; line-height: 1.4; }
+  .team-section h2 { font-size: 26px; font-weight: 600; color: #1a1a1a; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #0033a0; }
+  .team-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 20px 14px; }
+  .headshot-card { text-align: center; }
+  .headshot-img-wrapper { width: 100%; aspect-ratio: 4 / 5; overflow: hidden; background: #e8e8e8; margin-bottom: 10px; }
+  .headshot-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .headshot-name { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; line-height: 1.25; }
+  .headshot-region { font-size: 12px; color: #666; font-weight: 400; }
+  @media (max-width: 1200px) { .team-grid { grid-template-columns: repeat(5, 1fr); } }
+  @media (max-width: 900px) { .team-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 700px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 500px) { .team-grid { grid-template-columns: repeat(2, 1fr); } body { padding: 16px; } .team-section h2 { font-size: 20px; } .headshot-name { font-size: 15px; } }
+</style>
+</head>
+<body>
+  <section class="team-section">
+    <h2>Project Manager Team</h2>
+    <div class="team-grid">
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/nick-framel.jpg" alt="Nick Framel"></div>
+        <div class="headshot-name">Nick Framel</div>
+        <div class="headshot-region">East</div>
+      </div>
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/matt-james.png" alt="Matt James"></div>
+        <div class="headshot-name">Matt James</div>
+        <div class="headshot-region">East</div>
+      </div>
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/nicholas-phillips.jpg" alt="Nicholas Phillips"></div>
+        <div class="headshot-name">Nicholas Phillips</div>
+        <div class="headshot-region">East</div>
+      </div>
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/seth-miller.jpg" alt="Seth Miller"></div>
+        <div class="headshot-name">Seth Miller</div>
+        <div class="headshot-region">West</div>
+      </div>
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/bobby-kelley.png" alt="Bobby Kelley"></div>
+        <div class="headshot-name">Bobby Kelley</div>
+        <div class="headshot-region">West</div>
+      </div>
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/jason-goins.jpg" alt="Jason Goins"></div>
+        <div class="headshot-name">Jason Goins</div>
+        <div class="headshot-region">West</div>
+      </div>
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/tim-smith.png" alt="Tim Smith"></div>
+        <div class="headshot-name">Tim Smith</div>
+        <div class="headshot-region">South</div>
+      </div>
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/matt-bean.jpg" alt="Matt Bean"></div>
+        <div class="headshot-name">Matt Bean</div>
+        <div class="headshot-region">South</div>
+      </div>
+      <div class="headshot-card">
+        <div class="headshot-img-wrapper"><img class="headshot-img" src="images/matt-morning.png" alt="Matt Morning"></div>
+        <div class="headshot-name">Matt Morning</div>
+        <div class="headshot-region">South</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
