@@ -496,49 +496,49 @@
       "Jose Rodriguez":         { photo: "jose-rodriguez" }
     };
 
-    // Embedded headshots (base64 JPEG). To add a new PM photo:
-    // 1. Add an entry here with a short slug as the key
-    // 2. Reference that slug in the `photo` field of territoryInfo
+    // Headshots served from the AEM DAM. To add/replace a photo:
+    // 1. Upload "first-last.jpg" (or .png) to
+    //    /content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map
+    // 2. PUBLISH the asset (unpublished assets 404 on the public site)
+    // 3. Add/point an entry here; missing files fall back to Filler.jpg
     const photoData = {
-      // Photos are served from the AEM DAM. To add/replace a headshot, upload
-      // "first-last.jpg" to /content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map
-      // and PUBLISH it. Missing files automatically fall back to Filler.jpg.
+      // Missing files automatically fall back to Filler.jpg.
       "placeholder-logo": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/Filler.jpg",
-      "seth-miller": "photos/seth-miller.jpg",
-      "bobby-kelley": "photos/bobby-kelley.png",
-      "jason-goins": "photos/jason-goins.jpg",
-      "nick-framel": "photos/nick-framel.jpg",
-      "nick-phillips": "photos/nicholas-phillips.jpg",
-      "matt-james": "photos/matt-james.png",
-      "tim-smith": "photos/tim-smith.png",
-      "matt-bean": "photos/matt-bean.jpg",
-      "matt-moring": "photos/matt-morning.png",
-      "timothy-algoe": "photos/timothy-algoe.jpg",
-      "sean-russell": "photos/sean-russell.jpg",
-      "marcus-tejeda": "photos/marcus-tejeda.png",
-      "kit-cranford": "photos/kit-cranford.png",
-      "melissa-busch": "photos/melissa-busch.jpg",
-      "brian-doss": "photos/brian-doss.png",
+      "seth-miller": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/seth-miller.jpg",
+      "bobby-kelley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bobby-kelley.png",
+      "jason-goins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jason-goins.jpg",
+      "nick-framel": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/nick-framel.jpg",
+      "nick-phillips": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/nicholas-phillips.jpg",
+      "matt-james": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-james.png",
+      "tim-smith": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/tim-smith.png",
+      "matt-bean": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-bean.jpg",
+      "matt-moring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-morning.png",
+      "timothy-algoe": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/timothy-algoe.jpg",
+      "sean-russell": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/sean-russell.jpg",
+      "marcus-tejeda": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/marcus-tejeda.png",
+      "kit-cranford": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kit-cranford.png",
+      "melissa-busch": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/melissa-busch.jpg",
+      "brian-doss": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/brian-doss.png",
       "brian-fillous": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/brian-fillous.jpg",
-      "derric-rankins": "photos/derrik-rankins.jpg",
-      "bryan-manke": "photos/bryan-manke.jpg",
-      "kris-hobbins": "photos/kris-hobbins.png",
-      "hunter-johnston": "photos/hunter-johnston.jpg",
-      "peyton-mcburnett": "photos/peyton-mcburnett.jpg",
-      "joey-ribbons": "photos/joey-ribbons.jpg",
+      "derric-rankins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/derrik-rankins.jpg",
+      "bryan-manke": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bryan-manke.jpg",
+      "kris-hobbins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kris-hobbins.png",
+      "hunter-johnston": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/hunter-johnston.jpg",
+      "peyton-mcburnett": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/peyton-mcburnett.jpg",
+      "joey-ribbons": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/joey-ribbons.jpg",
       "kellie-martin": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kellie-martin.jpg",
       "timothy-mckenzie": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/timothy-mckenzie.jpg",
-      "griffin-wenger": "photos/griffin-wenger.jpg",
-      "patrick-woodring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/Patrick-Woodring.jpg",
-      "jim-boyd": "photos/jim-boyd.jpg",
-      "patrick-hale": "photos/patrick-hale.jpg",
-      "shane-oliver": "photos/shane-oliver.jpg",
-      "bryan-weygand": "photos/bryan-weygand.jpg",
-      "david-phornsutiphaijit": "photos/david-phornsutiphaijit.jpg",
-      "trevor-mccauley": "photos/trevor-mccauley.jpg",
-      "jared-hood": "photos/jared-hood.jpg",
-      "lance-mcgee": "photos/lance-mcgee.jpg",
-      "jose-rodriguez": "photos/jose-rodriguez.jpg"
+      "griffin-wenger": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/griffin-wenger.jpg",
+      "patrick-woodring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/patrick-woodring.jpg",
+      "jim-boyd": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jim-boyd.jpg",
+      "patrick-hale": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/patrick-hale.jpg",
+      "shane-oliver": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/shane-oliver.jpg",
+      "bryan-weygand": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bryan-weygand.jpg",
+      "david-phornsutiphaijit": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/david-phornsutiphaijit.jpg",
+      "trevor-mccauley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/trevor-mccauley.jpg",
+      "jared-hood": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jared-hood.jpg",
+      "lance-mcgee": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/lance-mcgee.jpg",
+      "jose-rodriguez": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jose-rodriguez.jpg"
     };
 
     // ---------------------------------------------------------------
