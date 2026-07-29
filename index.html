@@ -106,9 +106,10 @@
       max-width: 72px;
     }
     /* DCM column is wide (two-line title) — let the card and name use it,
-       so long names like Phornsutiphaijit wrap to two lines, not three */
-    .popup-content .dcm-section .pm { width: auto; min-width: 72px; }
-    .popup-content .dcm-section .pm-name { max-width: 150px; }
+       so long names like Phornsutiphaijit wrap to two lines, not three.
+       Left-justify the headshot + name so they align with the label above. */
+    .popup-content .dcm-section .pm { width: auto; min-width: 72px; align-items: flex-start; }
+    .popup-content .dcm-section .pm-name { max-width: 150px; text-align: left; }
     .popup-content .pm-name {
       font-size: 12px;
       font-weight: 500;
@@ -288,11 +289,11 @@
       "New Mexico":    ["Melissa Busch"],
 
       // Central
-      "Utah":          [],
-      "Colorado":      [],
+      "Utah":          ["Brian Doss"],
+      "Colorado":      ["Brian Doss"],
       "Kansas":        ["Brian Doss"],
       "Nebraska":      ["Brian Doss"],
-      "Missouri":      ["Brian Doss"],
+      "Missouri":      ["Brian Fillous"],
       "Kentucky":      ["Derric Rankins"],
       "West Virginia": ["Brian Fillous"],
       "Ohio":          ["Brian Fillous"],
@@ -304,22 +305,22 @@
       "Wisconsin":     ["Bryan Manke"],
       "Michigan":      ["Kris Hobbins"],
       "Indiana":       ["Kris Hobbins"],
-      "Iowa":          ["Bryan Manke"],
+      "Iowa":          ["Hunter Johnston"],
       "Illinois":      ["Hunter Johnston"],
 
       // South Central
-      "Texas":         ["Kellie Martin", "Peyton McBurnett", "Timothy McKenzie", "Joey Ribbens"],
-      "Oklahoma":      ["Kellie Martin"],
+      "Texas":         ["Kellie Martin", "Peyton McBurnett", "Timothy McKenzie"],
+      "Oklahoma":      ["Joey Ribbens"],
       "Arkansas":      ["Joey Ribbens"],
 
       // Northeast
       "Pennsylvania":  ["Griffin Wenger"],
-      "New York":      ["Brian Fillous", "Patrick Woodring", "Griffin Wenger"],
+      "New York":      ["Griffin Wenger"],
       "New Jersey":    ["Griffin Wenger"],
-      "Maryland":      [],
-      "Delaware":      [],
+      "Maryland":      ["Griffin Wenger"],
+      "Delaware":      ["Griffin Wenger"],
       "District of Columbia": ["Griffin Wenger"],
-      "Virginia":      [],
+      "Virginia":      ["Griffin Wenger"],
       "Maine":         ["Patrick Woodring"],
       "Vermont":       ["Patrick Woodring"],
       "New Hampshire": ["Patrick Woodring"],
@@ -330,7 +331,7 @@
       // Southeast
       "North Carolina": ["Jim Boyd"],
       "South Carolina": ["Jim Boyd"],
-      "Florida":        [],
+      "Florida":        ["Open"],
       "Mississippi":    ["Patrick Hale"],
       "Louisiana":      ["Patrick Hale"],
       "Alabama":        ["Shane Oliver"],
@@ -341,7 +342,7 @@
       "British Columbia":     ["Timothy Algoe"],
       "Alberta":              ["Timothy Algoe"],
       "Saskatchewan":         ["Timothy Algoe"],
-      "Manitoba":             ["Bryan Manke"],
+      "Manitoba":             ["Timothy Algoe"],
       "Ontario":              ["Kris Hobbins"],
       "Quebec":               ["Kris Hobbins"],
       "New Brunswick":        ["Kris Hobbins"],
@@ -352,46 +353,37 @@
     // -----------------------------------------------------------------
     // Project Managers: three coverage regions (separate from territories)
     // -----------------------------------------------------------------
-    const pmRegionByState = {
-      // West (PM region)
-      "Washington": "West", "Oregon": "West", "California": "West",
-      "Nevada": "West", "Idaho": "West", "Montana": "West",
-      "Wyoming": "West", "Utah": "West", "Arizona": "West",
-      "New Mexico": "West", "Colorado": "West", "North Dakota": "West",
-      "South Dakota": "West", "Nebraska": "West", "Kansas": "West",
-      "Minnesota": "West", "Iowa": "West", "Missouri": "West",
-      "Oklahoma": "West", "Arkansas": "West", "Alaska": "West", "Hawaii": "West",
-      // East (PM region)
-      "Wisconsin": "East", "Michigan": "East", "Illinois": "East",
-      "Indiana": "East", "Ohio": "East", "Pennsylvania": "East",
-      "New York": "East", "New Jersey": "East", "Maryland": "East",
-      "Delaware": "East", "District of Columbia": "East", "Virginia": "East",
-      "West Virginia": "East", "Vermont": "East", "New Hampshire": "East",
-      "Massachusetts": "East", "Connecticut": "East", "Rhode Island": "East",
-      "Maine": "East",
-      // South (PM region)
-      "Texas": "South", "Louisiana": "South", "Mississippi": "South",
-      "Alabama": "South", "Georgia": "South", "Florida": "South",
-      "South Carolina": "South", "North Carolina": "South",
-      "Tennessee": "South", "Kentucky": "South"
+    const pmByState = {  // PM Territory Breakdown map, 7/9/26
+      // Jason Goins
+      "British Columbia": "Jason Goins", "Alberta": "Jason Goins", "Washington": "Jason Goins", "Oregon": "Jason Goins", "Idaho": "Jason Goins", "Montana": "Jason Goins", "Wyoming": "Jason Goins", "Utah": "Jason Goins", "Colorado": "Jason Goins", "Alaska": "Jason Goins", "Hawaii": "Jason Goins",
+      // Matt James
+      "California": "Matt James", "Nevada": "Matt James", "Arizona": "Matt James",
+      // Bobby Kelley
+      "Nebraska": "Bobby Kelley", "Kansas": "Bobby Kelley", "Missouri": "Bobby Kelley", "New Mexico": "Bobby Kelley", "Ohio": "Bobby Kelley", "West Virginia": "Bobby Kelley", "Kentucky": "Bobby Kelley",
+      // Seth Miller
+      "North Dakota": "Seth Miller", "South Dakota": "Seth Miller", "Minnesota": "Seth Miller", "Wisconsin": "Seth Miller", "Iowa": "Seth Miller", "Oklahoma": "Seth Miller", "Arkansas": "Seth Miller",
+      // Tim Smith
+      "Saskatchewan": "Tim Smith", "Manitoba": "Tim Smith", "Michigan": "Tim Smith", "Illinois": "Tim Smith", "Indiana": "Tim Smith",
+      // Matt Bean
+      "Texas": "Matt Bean",
+      // Nick Phillips
+      "Ontario": "Nick Phillips", "Quebec": "Nick Phillips", "Nova Scotia": "Nick Phillips", "New York": "Nick Phillips", "Pennsylvania": "Nick Phillips", "Maine": "Nick Phillips", "Vermont": "Nick Phillips", "New Hampshire": "Nick Phillips", "Massachusetts": "Nick Phillips", "Rhode Island": "Nick Phillips", "Connecticut": "Nick Phillips", "New Jersey": "Nick Phillips", "Alabama": "Nick Phillips", "Louisiana": "Nick Phillips",
+      // Nick Framel
+      "Virginia": "Nick Framel", "Tennessee": "Nick Framel", "Mississippi": "Nick Framel", "District of Columbia": "Nick Framel", "Delaware": "Nick Framel", "Maryland": "Nick Framel",
+      // Matt Morning
+      "Florida": "Matt Morning", "Georgia": "Matt Morning", "North Carolina": "Matt Morning", "South Carolina": "Matt Morning"
     };
 
-    const projectManagersByRegion = {
-      "West": [
-        { name: "Seth Miller",   role: "High Security",         photo: "seth-miller" },
-        { name: "Bobby Kelley",  role: "High Security",         photo: "bobby-kelley" },
-        { name: "Jason Goins",   role: "Commercial Industrial", photo: "jason-goins" }
-      ],
-      "East": [
-        { name: "Nick Framel",   role: "High Security",         photo: "nick-framel" },
-        { name: "Nick Phillips", role: "High Security",         photo: "nick-phillips" },
-        { name: "Matthew James", role: "Commercial Industrial", photo: "matt-james" }
-      ],
-      "South": [
-        { name: "Tim Smith",     role: "High Security",         photo: "tim-smith" },
-        { name: "Matt Bean",     role: "High Security",         photo: "matt-bean" },
-        { name: "Matt Moring",   role: "Commercial Industrial", photo: "matt-moring" }
-      ]
+    const projectManagers = {
+      "Jason Goins":   { name: "Jason Goins",   role: "Commercial Industrial", photo: "jason-goins" },
+      "Matt James":    { name: "Matthew James", role: "Commercial Industrial", photo: "matt-james" },
+      "Bobby Kelley":  { name: "Bobby Kelley",  role: "High Security",         photo: "bobby-kelley" },
+      "Seth Miller":   { name: "Seth Miller",   role: "High Security",         photo: "seth-miller" },
+      "Tim Smith":     { name: "Tim Smith",     role: "High Security",         photo: "tim-smith" },
+      "Matt Bean":     { name: "Matt Bean",     role: "High Security",         photo: "matt-bean" },
+      "Nick Phillips": { name: "Nick Phillips", role: "High Security",         photo: "nick-phillips" },
+      "Nick Framel":   { name: "Nick Framel",   role: "High Security",         photo: "nick-framel" },
+      "Matt Morning":  { name: "Matt Morning",  role: "Commercial Industrial", photo: "matt-moring" }
     };
 
     const territoryInfo = {
@@ -512,41 +504,41 @@
       // "first-last.jpg" to /content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map
       // and PUBLISH it. Missing files automatically fall back to Filler.jpg.
       "placeholder-logo": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/Filler.jpg",
-      "seth-miller": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/seth-miller.jpg",
-      "bobby-kelley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bobby-kelley.jpg",
-      "jason-goins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jason-goins.jpg",
-      "nick-framel": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/nick-framel.jpg",
-      "nick-phillips": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/nicholas-phillips.jpg",
-      "matt-james": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-james.jpg",
-      "tim-smith": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/tim-smith.jpg",
-      "matt-bean": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-bean.jpg",
-      "matt-moring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-moring.jpg",
-      "timothy-algoe": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/timothy-algoe.jpg",
-      "sean-russell": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/sean-russell.jpg",
-      "marcus-tejeda": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/marcus-tejeda.jpg",
-      "kit-cranford": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kit-cranford.jpg",
-      "melissa-busch": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/melissa-busch.jpg",
-      "brian-doss": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/brian-doss.jpg",
+      "seth-miller": "photos/seth-miller.jpg",
+      "bobby-kelley": "photos/bobby-kelley.png",
+      "jason-goins": "photos/jason-goins.jpg",
+      "nick-framel": "photos/nick-framel.jpg",
+      "nick-phillips": "photos/nicholas-phillips.jpg",
+      "matt-james": "photos/matt-james.png",
+      "tim-smith": "photos/tim-smith.png",
+      "matt-bean": "photos/matt-bean.jpg",
+      "matt-moring": "photos/matt-morning.png",
+      "timothy-algoe": "photos/timothy-algoe.jpg",
+      "sean-russell": "photos/sean-russell.jpg",
+      "marcus-tejeda": "photos/marcus-tejeda.png",
+      "kit-cranford": "photos/kit-cranford.png",
+      "melissa-busch": "photos/melissa-busch.jpg",
+      "brian-doss": "photos/brian-doss.png",
       "brian-fillous": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/brian-fillous.jpg",
-      "derric-rankins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/derrik-rankins.jpg",
-      "bryan-manke": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bryan-manke.jpg",
-      "kris-hobbins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kris-hobbins.jpg",
-      "hunter-johnston": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/hunter-johnston.jpg",
-      "peyton-mcburnett": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/peyton-mcburnett.jpg",
-      "joey-ribbons": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/joey-ribbons.jpg",
+      "derric-rankins": "photos/derrik-rankins.jpg",
+      "bryan-manke": "photos/bryan-manke.jpg",
+      "kris-hobbins": "photos/kris-hobbins.png",
+      "hunter-johnston": "photos/hunter-johnston.jpg",
+      "peyton-mcburnett": "photos/peyton-mcburnett.jpg",
+      "joey-ribbons": "photos/joey-ribbons.jpg",
       "kellie-martin": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kellie-martin.jpg",
       "timothy-mckenzie": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/timothy-mckenzie.jpg",
-      "griffin-wenger": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/griffin-wenger.jpg",
+      "griffin-wenger": "photos/griffin-wenger.jpg",
       "patrick-woodring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/Patrick-Woodring.jpg",
-      "jim-boyd": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jim-boyd.jpg",
-      "patrick-hale": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/patrick-hale.jpg",
-      "shane-oliver": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/shane-oliver.jpg",
-      "bryan-weygand": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bryan-weygand.jpg",
-      "david-phornsutiphaijit": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/david-phornsutiphaijit.jpg",
-      "trevor-mccauley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/trevor-mccauley.jpg",
-      "jared-hood": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jared-hood.jpg",
-      "lance-mcgee": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/lance-mcgee.jpg",
-      "jose-rodriguez": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jose-rodriguez.jpg"
+      "jim-boyd": "photos/jim-boyd.jpg",
+      "patrick-hale": "photos/patrick-hale.jpg",
+      "shane-oliver": "photos/shane-oliver.jpg",
+      "bryan-weygand": "photos/bryan-weygand.jpg",
+      "david-phornsutiphaijit": "photos/david-phornsutiphaijit.jpg",
+      "trevor-mccauley": "photos/trevor-mccauley.jpg",
+      "jared-hood": "photos/jared-hood.jpg",
+      "lance-mcgee": "photos/lance-mcgee.jpg",
+      "jose-rodriguez": "photos/jose-rodriguez.jpg"
     };
 
     // ---------------------------------------------------------------
@@ -700,10 +692,10 @@
       const mdDcmHtml = (mdHtml || dcmHtml)
         ? '<div class="md-dcm-row">' + mdHtml + dcmHtml + '</div>'
         : '';
-      const pmRegion = pmRegionByState[stateName];
-      const pms = pmRegion ? (projectManagersByRegion[pmRegion] || []) : [];
+      const pmName = pmByState[stateName];
+      const pms = (pmName && projectManagers[pmName]) ? [projectManagers[pmName]] : [];
       const pmSectionHtml = pms.length
-        ? '<div class="role-label">Project<br>Managers</div>' +
+        ? '<div class="role-label">Project<br>Manager</div>' +
           '<div class="pm-row">' +
             pms.map(function(p) {
               return renderPM({ name: p.name, photo: p.photo, role: p.role, specialty: p.role });
