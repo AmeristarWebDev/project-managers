@@ -496,49 +496,49 @@
       "Jose Rodriguez":         { photo: "jose-rodriguez" }
     };
 
-    // Headshots served from the AEM DAM. To add/replace a photo:
+    // Headshots served from the AEM DAM salespeople folder. To add/replace:
     // 1. Upload "first-last.jpg" (or .png) to
-    //    /content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map
+    //    /content/dam/ameristar/com/site-images/salespeople/temp-widget
     // 2. PUBLISH the asset (unpublished assets 404 on the public site)
-    // 3. Add/point an entry here; missing files fall back to Filler.jpg
+    // 3. Add/point an entry here; missing files fall back to the Filler logo
     const photoData = {
       // Missing files automatically fall back to Filler.jpg.
       "placeholder-logo": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/Filler.jpg",
-      "seth-miller": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/seth-miller.jpg",
-      "bobby-kelley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bobby-kelley.png",
-      "jason-goins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jason-goins.jpg",
-      "nick-framel": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/nick-framel.jpg",
-      "nick-phillips": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/nicholas-phillips.jpg",
-      "matt-james": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-james.png",
-      "tim-smith": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/tim-smith.png",
-      "matt-bean": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-bean.jpg",
-      "matt-moring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/matt-morning.png",
-      "timothy-algoe": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/timothy-algoe.jpg",
-      "sean-russell": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/sean-russell.jpg",
-      "marcus-tejeda": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/marcus-tejeda.png",
-      "kit-cranford": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kit-cranford.png",
-      "melissa-busch": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/melissa-busch.jpg",
-      "brian-doss": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/brian-doss.png",
-      "brian-fillous": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/brian-fillous.jpg",
-      "derric-rankins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/derrik-rankins.jpg",
-      "bryan-manke": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bryan-manke.jpg",
-      "kris-hobbins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kris-hobbins.png",
-      "hunter-johnston": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/hunter-johnston.jpg",
-      "peyton-mcburnett": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/peyton-mcburnett.jpg",
-      "joey-ribbons": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/joey-ribbons.jpg",
-      "kellie-martin": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/kellie-martin.jpg",
-      "timothy-mckenzie": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/timothy-mckenzie.jpg",
-      "griffin-wenger": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/griffin-wenger.jpg",
-      "patrick-woodring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/patrick-woodring.jpg",
-      "jim-boyd": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jim-boyd.jpg",
-      "patrick-hale": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/patrick-hale.jpg",
-      "shane-oliver": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/shane-oliver.jpg",
-      "bryan-weygand": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/bryan-weygand.jpg",
-      "david-phornsutiphaijit": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/david-phornsutiphaijit.jpg",
-      "trevor-mccauley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/trevor-mccauley.jpg",
-      "jared-hood": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jared-hood.jpg",
-      "lance-mcgee": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/lance-mcgee.jpg",
-      "jose-rodriguez": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/jose-rodriguez.jpg"
+      "seth-miller": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/seth-miller.jpg",
+      "bobby-kelley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/bobby-kelley.png",
+      "jason-goins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/jason-goins.jpg",
+      "nick-framel": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/nick-framel.jpg",
+      "nick-phillips": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/nicholas-phillips.jpg",
+      "matt-james": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/matt-james.png",
+      "tim-smith": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/tim-smith.png",
+      "matt-bean": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/matt-bean.jpg",
+      "matt-moring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/matt-morning.png",
+      "timothy-algoe": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/timothy-algoe.jpg",
+      "sean-russell": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/sean-russell.jpg",
+      "marcus-tejeda": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/marcus-tejeda.png",
+      "kit-cranford": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/kit-cranford.png",
+      "melissa-busch": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/melissa-busch.jpg",
+      "brian-doss": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/brian-doss.png",
+      "brian-fillous": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/brian-fillous.jpg",
+      "derric-rankins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/derrik-rankins.jpg",
+      "bryan-manke": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/bryan-manke.jpg",
+      "kris-hobbins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/kris-hobbins.png",
+      "hunter-johnston": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/hunter-johnston.jpg",
+      "peyton-mcburnett": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/peyton-mcburnett.jpg",
+      "joey-ribbons": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/joey-ribbons.jpg",
+      "kellie-martin": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/kellie-martin.jpg",
+      "timothy-mckenzie": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/timothy-mckenzie.jpg",
+      "griffin-wenger": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/griffin-wenger.jpg",
+      "patrick-woodring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/patrick-woodring.jpg",
+      "jim-boyd": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/jim-boyd.jpg",
+      "patrick-hale": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/patrick-hale.jpg",
+      "shane-oliver": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/shane-oliver.jpg",
+      "bryan-weygand": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/bryan-weygand.jpg",
+      "david-phornsutiphaijit": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/david-phornsutiphaijit.jpg",
+      "trevor-mccauley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/trevor-mccauley.jpg",
+      "jared-hood": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/jared-hood.jpg",
+      "lance-mcgee": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/lance-mcgee.jpg",
+      "jose-rodriguez": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/jose-rodriguez.jpg"
     };
 
     // ---------------------------------------------------------------
@@ -600,8 +600,24 @@
     // ---------------------------------------------------------------
     // 3. STYLE EACH STATE (colored by territory)
     // ---------------------------------------------------------------
+    // Canadian provinces stay on the map (popups still work) but are not
+    // highlighted — neutral fill that blends with the basemap.
+    const CANADA_PROVINCES = new Set([
+      "British Columbia", "Alberta", "Saskatchewan", "Manitoba", "Ontario",
+      "Quebec", "New Brunswick", "Nova Scotia", "Prince Edward Island"
+    ]);
+
     function styleFeature(feature) {
       const stateName = feature.properties.name;
+      if (CANADA_PROVINCES.has(stateName)) {
+        return {
+          fillColor: "#d9dde1",
+          weight: 1,
+          opacity: 1,
+          color: "white",
+          fillOpacity: 0.35
+        };
+      }
       const territory = territoryByState[stateName];
       const color = territory ? territoryInfo[territory].color : "#cccccc";
       return {
@@ -626,7 +642,8 @@
         geojsonLayer.resetStyle(highlightedLayer);
       }
       highlightedLayer = layer;
-      layer.setStyle({ weight: 3, color: "#333", fillOpacity: 1 });
+      const isCanada = CANADA_PROVINCES.has(layer.feature.properties.name);
+      layer.setStyle({ weight: 3, color: "#333", fillOpacity: isCanada ? 0.5 : 1 });
       layer.bringToFront();
       info.update(layer.feature.properties);
     }
