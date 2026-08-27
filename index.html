@@ -590,10 +590,11 @@
     });
 
     // Light, unobtrusive basemap. Swap for any tile provider you like.
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-      subdomains: 'abcd',
-      maxZoom: 19
+    // Esri Light Gray Canvas — free, no API key, same muted aesthetic as the
+    // old CARTO Positron tiles (which now require a key as of 2026).
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors',
+      maxZoom: 16
     }).addTo(map);
 
     
