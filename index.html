@@ -229,321 +229,47 @@
 
   <script>
     // ---------------------------------------------------------------
-    // 1. DEFINE YOUR TERRITORIES
-    // Map each state (by full name) to a territory.
-    // Edit this object to match your business.
+    // 1. DATA
+    // All territory / roster / photo data lives in data/map.json.
+    // Edit it with the admin app (find-your-team/admin.html) or directly
+    // on GitHub. Nothing below this block needs to change for a
+    // personnel update.
     // ---------------------------------------------------------------
-    const territoryByState = {
-      // WEST — WA, OR, ID, MT, WY, CA, NV, AZ, NM (+ AK, HI)
-      "Washington": "West", "Oregon": "West", "California": "West",
-      "Nevada": "West", "Idaho": "West", "Montana": "West",
-      "Wyoming": "West", "Arizona": "West", "New Mexico": "West",
-      "Alaska": "West", "Hawaii": "West",
-      // CENTRAL — UT, CO, KS, MO, KY, WV, OH, NE
-      "Utah": "Central", "Colorado": "Central", "Kansas": "Central",
-      "Missouri": "Central", "Kentucky": "Central", "West Virginia": "Central",
-      "Ohio": "Central", "Nebraska": "Central",
-      // MIDWEST — ND, SD, MN, IA, WI, IL, IN, MI
-      "North Dakota": "Midwest", "South Dakota": "Midwest",
-      "Minnesota": "Midwest", "Iowa": "Midwest", "Wisconsin": "Midwest",
-      "Illinois": "Midwest", "Indiana": "Midwest", "Michigan": "Midwest",
-      // SOUTH CENTRAL — TX, OK, AR
-      "Texas": "South Central",
-      "Oklahoma": "South Central", "Arkansas": "South Central",
-      // NORTHEAST — ME, VT, NH, MA, NY, CT, RI, PA, NJ, MD, VA, DE, DC
-      "Maine": "Northeast", "Vermont": "Northeast", "New Hampshire": "Northeast",
-      "Massachusetts": "Northeast", "New York": "Northeast", "Connecticut": "Northeast",
-      "Rhode Island": "Northeast", "Pennsylvania": "Northeast", "New Jersey": "Northeast",
-      "Maryland": "Northeast", "Virginia": "Northeast", "Delaware": "Northeast",
-      "District of Columbia": "Northeast",
-      // SOUTHEAST — NC, SC, TN, MS, LA, AL, GA, FL
-      "North Carolina": "Southeast", "South Carolina": "Southeast",
-      "Tennessee": "Southeast", "Mississippi": "Southeast", "Louisiana": "Southeast",
-      "Alabama": "Southeast", "Georgia": "Southeast", "Florida": "Southeast",
-      // CANADA
-      "British Columbia": "Canada West", "Alberta": "Canada West",
-      "Saskatchewan": "Canada West", "Manitoba": "Canada West",
-      "Ontario": "Canada Central",
-      "Quebec": "Canada East", "New Brunswick": "Canada East",
-      "Nova Scotia": "Canada East", "Prince Edward Island": "Canada East"
-    };
+    let territoryByState, marketDevelopersByState, pmByState, projectManagers,
+        territoryInfo, marketDeveloperInfo, dcmInfo, photoData, PHONE, CANADA_PROVINCES;
 
-    // Territory info: color + project managers for each role.
-    // The `photo` value is a slug that looks up an embedded image in photoData below.
-    // -----------------------------------------------------------------
-    // Per-state Market Developer coverage (within each territory).
-    // States not listed fall back to the full territory roster.
-    // -----------------------------------------------------------------
-    const marketDevelopersByState = {
-      // West
-      "Oregon":        ["Timothy Algoe", "Sean Russell"],
-      "Washington":    ["Timothy Algoe", "Sean Russell"],
-      "Alaska":        ["Timothy Algoe"],
-      "Hawaii":        ["Timothy Algoe"],
-      "Idaho":         ["Sean Russell"],
-      "Montana":       ["Sean Russell"],
-      "Wyoming":       ["Sean Russell"],
-      "California":    ["Marcus Tejeda", "Kit Cranford"],
-      "Nevada":        ["Marcus Tejeda"],
-      "Arizona":       ["Melissa Busch"],
-      "New Mexico":    ["Melissa Busch"],
-
-      // Central
-      "Utah":          ["Carlos Sanchez"],
-      "Colorado":      ["Carlos Sanchez"],
-      "Kansas":        ["Brian Doss"],
-      "Nebraska":      ["Brian Doss"],
-      "Missouri":      ["Brian Doss"],
-      "Kentucky":      ["Derric Rankins"],
-      "West Virginia": ["Brian Fillous"],
-      "Ohio":          ["Brian Fillous"],
-
-      // Midwest
-      "North Dakota":  ["Bryan Manke"],
-      "South Dakota":  ["Bryan Manke"],
-      "Minnesota":     ["Bryan Manke"],
-      "Wisconsin":     ["Bryan Manke"],
-      "Michigan":      ["Kris Hobbins"],
-      "Indiana":       ["Kris Hobbins"],
-      "Iowa":          ["Hunter Johnston"],
-      "Illinois":      ["Hunter Johnston"],
-
-      // South Central
-      "Texas":         ["Kellie Martin", "Peyton McBurnett", "Timothy McKenzie"],
-      "Oklahoma":      ["Joey Ribbens"],
-      "Arkansas":      ["Joey Ribbens"],
-
-      // Northeast
-      "Pennsylvania":  ["Griffin Wenger"],
-      "New York":      ["Griffin Wenger"],
-      "New Jersey":    ["Griffin Wenger"],
-      "Maryland":      ["Griffin Wenger"],
-      "Delaware":      ["Griffin Wenger"],
-      "District of Columbia": ["Griffin Wenger"],
-      "Virginia":      ["Griffin Wenger"],
-      "Maine":         ["Patrick Woodring"],
-      "Vermont":       ["Patrick Woodring"],
-      "New Hampshire": ["Patrick Woodring"],
-      "Massachusetts": ["Patrick Woodring"],
-      "Rhode Island":  ["Patrick Woodring"],
-      "Connecticut":   ["Patrick Woodring"],
-
-      // Southeast
-      "North Carolina": ["Jim Boyd"],
-      "South Carolina": ["Jim Boyd"],
-      "Florida":        ["Open"],
-      "Mississippi":    ["Patrick Hale"],
-      "Louisiana":      ["Patrick Hale"],
-      "Alabama":        ["Shane Oliver"],
-      "Georgia":        ["Shane Oliver"],
-      "Tennessee":      ["Derric Rankins"],
-
-      // Canada
-      "British Columbia":     ["Timothy Algoe"],
-      "Alberta":              ["Timothy Algoe"],
-      "Saskatchewan":         ["Timothy Algoe"],
-      "Manitoba":             ["Timothy Algoe"],
-      "Ontario":              ["Kris Hobbins"],
-      "Quebec":               ["Kris Hobbins"],
-      "New Brunswick":        ["Kris Hobbins"],
-      "Nova Scotia":          ["Kris Hobbins"],
-      "Prince Edward Island": ["Kris Hobbins"]
-    };
-
-    // -----------------------------------------------------------------
-    // Project Managers: three coverage regions (separate from territories)
-    // -----------------------------------------------------------------
-    const pmByState = {  // PM Territory Breakdown map, 7/9/26
-      // Jason Goins
-      "British Columbia": "Jason Goins", "Alberta": "Jason Goins", "Washington": "Jason Goins", "Oregon": "Jason Goins", "Idaho": "Jason Goins", "Montana": "Jason Goins", "Wyoming": "Jason Goins", "Utah": "Jason Goins", "Colorado": "Jason Goins", "Alaska": "Jason Goins", "Hawaii": "Jason Goins",
-      // Matt James
-      "California": "Matt James", "Nevada": "Matt James", "Arizona": "Matt James",
-      // Bobby Kelley
-      "Nebraska": "Bobby Kelley", "Kansas": "Bobby Kelley", "Missouri": "Bobby Kelley", "New Mexico": "Bobby Kelley", "Ohio": "Bobby Kelley", "West Virginia": "Bobby Kelley", "Kentucky": "Bobby Kelley",
-      // Seth Miller
-      "North Dakota": "Seth Miller", "South Dakota": "Seth Miller", "Minnesota": "Seth Miller", "Wisconsin": "Seth Miller", "Iowa": "Seth Miller", "Oklahoma": "Seth Miller", "Arkansas": "Seth Miller",
-      // Tim Smith
-      "Saskatchewan": "Tim Smith", "Manitoba": "Tim Smith", "Michigan": "Tim Smith", "Illinois": "Tim Smith", "Indiana": "Tim Smith",
-      // Matt Bean
-      "Texas": "Matt Bean",
-      // Nick Phillips
-      "Ontario": "Nick Phillips", "Quebec": "Nick Phillips", "Nova Scotia": "Nick Phillips", "New York": "Nick Phillips", "Pennsylvania": "Nick Phillips", "Maine": "Nick Phillips", "Vermont": "Nick Phillips", "New Hampshire": "Nick Phillips", "Massachusetts": "Nick Phillips", "Rhode Island": "Nick Phillips", "Connecticut": "Nick Phillips", "New Jersey": "Nick Phillips", "Alabama": "Nick Phillips", "Louisiana": "Nick Phillips",
-      // Nick Framel
-      "Virginia": "Nick Framel", "Tennessee": "Nick Framel", "Mississippi": "Nick Framel", "District of Columbia": "Nick Framel", "Delaware": "Nick Framel", "Maryland": "Nick Framel",
-      // Matt Morning
-      "Florida": "Dustin Mullinax", "Georgia": "Dustin Mullinax", "North Carolina": "Dustin Mullinax", "South Carolina": "Dustin Mullinax"
-    };
-
-    const projectManagers = {
-      "Jason Goins":   { name: "Jason Goins",   role: "Commercial Industrial", photo: "jason-goins" },
-      "Matt James":    { name: "Matthew James", role: "Commercial Industrial", photo: "matt-james" },
-      "Bobby Kelley":  { name: "Bobby Kelley",  role: "High Security",         photo: "bobby-kelley" },
-      "Seth Miller":   { name: "Seth Miller",   role: "High Security",         photo: "seth-miller" },
-      "Tim Smith":     { name: "Tim Smith",     role: "High Security",         photo: "tim-smith" },
-      "Matt Bean":     { name: "Matt Bean",     role: "High Security",         photo: "matt-bean" },
-      "Nick Phillips": { name: "Nick Phillips", role: "High Security",         photo: "nick-phillips" },
-      "Nick Framel":   { name: "Nick Framel",   role: "High Security",         photo: "nick-framel" },
-      "Dustin Mullinax": { name: "Dustin Mullinax", role: "Commercial Industrial", photo: "dustin-mullinax" }
-    };
-
-    const territoryInfo = {
-      "West": {
-        mds: ["Timothy Algoe", "Sean Russell", "Marcus Tejeda", "Kit Cranford", "Melissa Busch"],
-        color: "#3E3ED6",
-        dcm: "Bryan Weygand",
-        ts: ["Nick Watts", "Nic Ellsworth", "Will McMurphy"],
-        email: "Ameristarwest@assaabloy.com"
-      },
-      "Central": {
-        mds: ["Brian Doss", "Brian Fillous", "Carlos Sanchez", "Derric Rankins"],
-        color: "#A9B3D6",
-        dcm: "David Phornsutiphaijit",
-        ts: ["Clint Stubblefield", "Cody Hill"],
-        email: "Ameristarcentral@assaabloy.com"
-      },
-      "Midwest": {
-        mds: ["Bryan Manke", "Kris Hobbins", "Hunter Johnston"],
-        color: "#1F2B5C",
-        dcm: "Trevor McCauley",
-        ts: ["Jessica Sadler", "Angela Price"],
-        email: "Ameristarmidwest@assaabloy.com"
-      },
-      "South Central": {
-        mds: ["Peyton McBurnett", "Joey Ribbens", "Kellie Martin", "Timothy McKenzie"],
-        color: "#4A7F9F",
-        dcm: "Jared Hood",
-        ts: ["Patrick Hattaway", "Mary Stout", "Chandra Robinson"],
-        email: "Ameristarsouthcentral@assaabloy.com"
-      },
-      "Northeast": {
-        mds: ["Griffin Wenger", "Patrick Woodring"],
-        color: "#7D8FD6",
-        dcm: "Lance McGee",
-        ts: ["Toni Butler", "Devin Jarrett"],
-        email: "Ameristarnortheast@assaabloy.com"
-      },
-      "Southeast": {
-        mds: ["Jim Boyd", "Patrick Hale", "Shane Oliver", "Derric Rankins"],
-        color: "#C9DEF0",
-        dcm: "Jose Rodriguez",
-        ts: ["Ashli Darling", "Kim Thorn-Irvin", "Ellen Henderson"],
-        email: "Ameristarsoutheast@assaabloy.com"
-      },
-      "Canada West": {
-        mds: ["Timothy Algoe"],
-        color: "#999999",
-        dcm: null,
-        ts: ["Nick Watts", "Nic Ellsworth", "Will McMurphy"],
-        email: "Ameristarwest@assaabloy.com"
-      },
-      "Canada Central": {
-        mds: ["Kris Hobbins"],
-        color: "#33415F",
-        dcm: null,
-        ts: ["Jessica Sadler", "Angela Price"],
-        email: "Ameristarmidwest@assaabloy.com"
-      },
-      "Canada East": {
-        mds: ["Kris Hobbins"],
-        color: "#6E6E78",
-        dcm: null,
-        ts: ["Toni Butler", "Devin Jarrett"],
-        email: "Ameristarnortheast@assaabloy.com"
+    function hydrate(d) {
+      const base = d.photoBase || "photos/";
+      PHONE = d.phone || "888-333-3422";
+      CANADA_PROVINCES = new Set(d.canadaProvinces || []);
+      territoryInfo = d.territories || {};
+      territoryByState = {}; marketDevelopersByState = {}; pmByState = {};
+      for (const [s, v] of Object.entries(d.states || {})) {
+        territoryByState[s] = v.territory;
+        if (v.mds && v.mds.length) marketDevelopersByState[s] = v.mds;
+        if (v.pm) pmByState[s] = v.pm;
       }
-    };
+      projectManagers = {}; marketDeveloperInfo = {}; dcmInfo = {}; photoData = {};
+      photoData["placeholder-logo"] = base + (d.placeholder || "placeholder.jpg");
+      for (const [name, p] of Object.entries(d.people || {})) {
+        // Photo key == person name. Missing file -> onerror -> placeholder logo.
+        photoData[name] = base + (p.photo || d.placeholder || "placeholder.jpg");
+        marketDeveloperInfo[name] = { photo: name };
+        dcmInfo[name] = { photo: name };
+        projectManagers[name] = { name: name, role: p.role || "", photo: name };
+      }
+    }
 
-    // -----------------------------------------------------------------
-    // MARKET DEVELOPERS
-    // MDs are assigned per territory (territoryInfo.mds). Photos below.
-    // -----------------------------------------------------------------
+    fetch("data/map.json?v=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("map.json " + r.status); return r.json(); })
+      .then(function (d) { hydrate(d); initMap(); })
+      .catch(function (err) {
+        console.error(err);
+        document.getElementById("map").innerHTML =
+          '<div style="padding:24px;font-family:sans-serif;color:#900">Could not load data/map.json</div>';
+      });
 
-    // Lookup of MD details. Add `photo: "slug"` once headshots are embedded.
-    const marketDeveloperInfo = {
-      "Timothy Algoe":         { photo: "timothy-algoe" },
-      "Sean Russell":          { photo: "sean-russell" },
-      "Marcus Tejeda":         { photo: "marcus-tejeda" },
-      "Kit Cranford":          { photo: "kit-cranford" },
-      "Melissa Busch":         { photo: "melissa-busch" },
-      "Bryan Manke":           { photo: "bryan-manke" },
-      "Kris Hobbins":          { photo: "kris-hobbins" },
-      "Brian Doss":            { photo: "brian-doss" },
-      "Carlos Sanchez":        { photo: "carlos-sanchez" },
-      "Brian Fillous":         { photo: "brian-fillous" },
-      "Hunter Johnston":       { photo: "hunter-johnston" },
-      "Peyton McBurnett":      { photo: "peyton-mcburnett" },
-      "Joey Ribbens":          { photo: "joey-ribbons" },
-      "Kellie Martin":         { photo: "kellie-martin" },
-      "Timothy McKenzie":      { photo: "timothy-mckenzie" },
-      "Patrick Hale":          { photo: "patrick-hale" },
-      "Shane Oliver":          { photo: "shane-oliver" },
-      "Derric Rankins":        { photo: "derric-rankins" },
-      "Jim Boyd":              { photo: "jim-boyd" },
-      "Griffin Wenger":        { photo: "griffin-wenger" },
-      "Patrick Woodring":      { photo: "patrick-woodring" }
-    };
-
-    
-
-    // -----------------------------------------------------------------
-    // DISTRIBUTION CHANNEL MANAGERS
-    // One DCM per territory (see territoryInfo.dcm). Photos below.
-    // -----------------------------------------------------------------
-    const dcmInfo = {
-      "Bryan Weygand":          { photo: "bryan-weygand" },
-      "David Phornsutiphaijit": { photo: "david-phornsutiphaijit" },
-      "Trevor McCauley":        { photo: "trevor-mccauley" },
-      "Jared Hood":             { photo: "jared-hood" },
-      "Lance McGee":            { photo: "lance-mcgee" },
-      "Jose Rodriguez":         { photo: "jose-rodriguez" }
-    };
-
-    // Headshots served from the AEM DAM salespeople folder. To add/replace:
-    // 1. Upload "first-last.jpg" (or .png) to
-    //    /content/dam/ameristar/com/site-images/salespeople/temp-widget
-    // 2. PUBLISH the asset (unpublished assets 404 on the public site)
-    // 3. Add/point an entry here; missing files fall back to the Filler logo
-    const photoData = {
-      // Missing files automatically fall back to Filler.jpg.
-      "placeholder-logo": "https://www.ameristarperimeter.com/content/dam/ameristar/com/us/en/content-fragments/contacts/sales-team-map/Filler.jpg",
-      "seth-miller": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/seth-miller.jpg",
-      "bobby-kelley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/bobby-kelley.png",
-      "jason-goins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/jason-goins.jpg",
-      "nick-framel": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/nick-framel.jpg",
-      "nick-phillips": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/nicholas-phillips.jpg",
-      "matt-james": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/matt-james.png",
-      "tim-smith": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/tim-smith.png",
-      "matt-bean": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/matt-bean.jpg",
-      "matt-moring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/matt-morning.png",
-      "dustin-mullinax": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/dustin-mullinax.jpg",
-      "timothy-algoe": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/timothy-algoe.jpg",
-      "sean-russell": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/sean-russell.jpg",
-      "marcus-tejeda": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/marcus-tejeda.png",
-      "kit-cranford": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/kit-cranford.png",
-      "melissa-busch": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/melissa-busch.jpg",
-      "brian-doss": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/brian-doss.png",
-      "carlos-sanchez": "images/carlos-sanchez.jpg",
-      "david-phornsutiphaijit": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/david-phornsutiphaijit.jpg",
-      "brian-fillous": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/brian-fillous.jpg",
-      "derric-rankins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/derrik-rankins.jpg",
-      "bryan-manke": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/bryan-manke.jpg",
-      "kris-hobbins": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/kris-hobbins.png",
-      "hunter-johnston": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/hunter-johnston.jpg",
-      "peyton-mcburnett": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/peyton-mcburnett.jpg",
-      "joey-ribbons": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/joey-ribbons.jpg",
-      "kellie-martin": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/kellie-martin.jpg",
-      "timothy-mckenzie": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/timothy-mckenzie.jpg",
-      "griffin-wenger": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/griffin-wenger.jpg",
-      "patrick-woodring": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/patrick-woodring.jpg",
-      "jim-boyd": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/jim-boyd.jpg",
-      "patrick-hale": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/patrick-hale.jpg",
-      "shane-oliver": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/shane-oliver.jpg",
-      "bryan-weygand": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/bryan-weygand.jpg",
-      "trevor-mccauley": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/trevor-mccauley.jpg",
-      "jared-hood": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/jared-hood.jpg",
-      "lance-mcgee": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/lance-mcgee.jpg",
-      "jose-rodriguez": "https://www.ameristarperimeter.com/content/dam/ameristar/com/site-images/salespeople/temp-widget/jose-rodriguez.jpg"
-    };
-
+    function initMap() {
     // ---------------------------------------------------------------
     // 2. INITIALIZE THE MAP
     // ---------------------------------------------------------------
@@ -604,12 +330,7 @@
     // ---------------------------------------------------------------
     // 3. STYLE EACH STATE (colored by territory)
     // ---------------------------------------------------------------
-    // Canadian provinces stay on the map (popups still work) but are not
-    // highlighted — neutral fill that blends with the basemap.
-    const CANADA_PROVINCES = new Set([
-      "British Columbia", "Alberta", "Saskatchewan", "Manitoba", "Ontario",
-      "Quebec", "New Brunswick", "Nova Scotia", "Prince Edward Island"
-    ]);
+    // Canadian provinces (listed in map.json) stay clickable but are not highlighted.
 
     function styleFeature(feature) {
       const stateName = feature.properties.name;
@@ -736,7 +457,7 @@
           mdDcmHtml +
           pmSectionHtml +
           tsHtml +
-          '<div class="popup-phone"><a href="tel:+18883333422" target="_top">888-333-3422</a></div>' +
+          '<div class="popup-phone"><a href="tel:+1' + PHONE.replace(/\D/g, "") + '" target="_top">' + PHONE + '</a></div>' +
           emailHtml +
         '</div>'
       );
@@ -1013,7 +734,9 @@
         keyboard: false
       }).addTo(map);
     });
+      // Handy for debugging in the browser console: __map.buildPopupHtml("Texas")
+      window.__map = { buildPopupHtml: buildPopupHtml, styleFeature: styleFeature, map: map };
+    } // initMap
   </script>
 </body>
 </html>
-

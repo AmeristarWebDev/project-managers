@@ -1,0 +1,689 @@
+{
+  "_comment": "Territory map data. Edit with the admin app or directly here. Photos are filenames in the photos/ folder of this repo.",
+  "phone": "888-333-3422",
+  "photoBase": "photos/",
+  "placeholder": "placeholder.jpg",
+  "canadaProvinces": [
+    "British Columbia",
+    "Alberta",
+    "Saskatchewan",
+    "Manitoba",
+    "Ontario",
+    "Quebec",
+    "New Brunswick",
+    "Nova Scotia",
+    "Prince Edward Island"
+  ],
+  "territories": {
+    "West": {
+      "color": "#3E3ED6",
+      "email": "Ameristarwest@assaabloy.com",
+      "dcm": "Bryan Weygand",
+      "mds": [
+        "Timothy Algoe",
+        "Sean Russell",
+        "Marcus Tejeda",
+        "Kit Cranford",
+        "Melissa Busch"
+      ],
+      "ts": [
+        "Nick Watts",
+        "Nic Ellsworth",
+        "Will McMurphy"
+      ]
+    },
+    "Central": {
+      "color": "#A9B3D6",
+      "email": "Ameristarcentral@assaabloy.com",
+      "dcm": "David Phornsutiphaijit",
+      "mds": [
+        "Brian Doss",
+        "Brian Fillous",
+        "Derric Rankins"
+      ],
+      "ts": [
+        "Clint Stubblefield",
+        "Cody Hill"
+      ]
+    },
+    "Midwest": {
+      "color": "#1F2B5C",
+      "email": "Ameristarmidwest@assaabloy.com",
+      "dcm": "Trevor McCauley",
+      "mds": [
+        "Bryan Manke",
+        "Kris Hobbins",
+        "Hunter Johnston"
+      ],
+      "ts": [
+        "Jessica Sadler",
+        "Angela Price"
+      ]
+    },
+    "South Central": {
+      "color": "#4A7F9F",
+      "email": "Ameristarsouthcentral@assaabloy.com",
+      "dcm": "Jared Hood",
+      "mds": [
+        "Peyton McBurnett",
+        "Joey Ribbens",
+        "Kellie Martin",
+        "Timothy McKenzie"
+      ],
+      "ts": [
+        "Patrick Hattaway",
+        "Mary Stout",
+        "Chandra Robinson"
+      ]
+    },
+    "Northeast": {
+      "color": "#7D8FD6",
+      "email": "Ameristarnortheast@assaabloy.com",
+      "dcm": "Lance McGee",
+      "mds": [
+        "Griffin Wenger",
+        "Patrick Woodring"
+      ],
+      "ts": [
+        "Toni Butler",
+        "Devin Jarrett"
+      ]
+    },
+    "Southeast": {
+      "color": "#C9DEF0",
+      "email": "Ameristarsoutheast@assaabloy.com",
+      "dcm": "Jose Rodriguez",
+      "mds": [
+        "Jim Boyd",
+        "Patrick Hale",
+        "Shane Oliver",
+        "Derric Rankins"
+      ],
+      "ts": [
+        "Ashli Darling",
+        "Kim Thorn-Irvin",
+        "Ellen Henderson"
+      ]
+    },
+    "Canada West": {
+      "color": "#999999",
+      "email": "Ameristarwest@assaabloy.com",
+      "dcm": "",
+      "mds": [
+        "Timothy Algoe"
+      ],
+      "ts": [
+        "Nick Watts",
+        "Nic Ellsworth",
+        "Will McMurphy"
+      ]
+    },
+    "Canada Central": {
+      "color": "#33415F",
+      "email": "Ameristarmidwest@assaabloy.com",
+      "dcm": "",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "ts": [
+        "Jessica Sadler",
+        "Angela Price"
+      ]
+    },
+    "Canada East": {
+      "color": "#6E6E78",
+      "email": "Ameristarnortheast@assaabloy.com",
+      "dcm": "",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "ts": [
+        "Toni Butler",
+        "Devin Jarrett"
+      ]
+    }
+  },
+  "states": {
+    "Washington": {
+      "territory": "West",
+      "mds": [
+        "Timothy Algoe",
+        "Sean Russell"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Oregon": {
+      "territory": "West",
+      "mds": [
+        "Timothy Algoe",
+        "Sean Russell"
+      ],
+      "pm": "Jason Goins"
+    },
+    "California": {
+      "territory": "West",
+      "mds": [
+        "Marcus Tejeda",
+        "Kit Cranford"
+      ],
+      "pm": "Matthew James"
+    },
+    "Nevada": {
+      "territory": "West",
+      "mds": [
+        "Marcus Tejeda"
+      ],
+      "pm": "Matthew James"
+    },
+    "Idaho": {
+      "territory": "West",
+      "mds": [
+        "Sean Russell"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Montana": {
+      "territory": "West",
+      "mds": [
+        "Sean Russell"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Wyoming": {
+      "territory": "West",
+      "mds": [
+        "Sean Russell"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Arizona": {
+      "territory": "West",
+      "mds": [
+        "Melissa Busch"
+      ],
+      "pm": "Matthew James"
+    },
+    "New Mexico": {
+      "territory": "West",
+      "mds": [
+        "Melissa Busch"
+      ],
+      "pm": "Bobby Kelley"
+    },
+    "Alaska": {
+      "territory": "West",
+      "mds": [
+        "Timothy Algoe"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Hawaii": {
+      "territory": "West",
+      "mds": [
+        "Timothy Algoe"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Utah": {
+      "territory": "Central",
+      "mds": [
+        "Brian Doss"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Colorado": {
+      "territory": "Central",
+      "mds": [
+        "Brian Doss"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Kansas": {
+      "territory": "Central",
+      "mds": [
+        "Brian Doss"
+      ],
+      "pm": "Bobby Kelley"
+    },
+    "Missouri": {
+      "territory": "Central",
+      "mds": [
+        "Brian Fillous"
+      ],
+      "pm": "Bobby Kelley"
+    },
+    "Kentucky": {
+      "territory": "Central",
+      "mds": [
+        "Derric Rankins"
+      ],
+      "pm": "Bobby Kelley"
+    },
+    "West Virginia": {
+      "territory": "Central",
+      "mds": [
+        "Brian Fillous"
+      ],
+      "pm": "Bobby Kelley"
+    },
+    "Ohio": {
+      "territory": "Central",
+      "mds": [
+        "Brian Fillous"
+      ],
+      "pm": "Bobby Kelley"
+    },
+    "Nebraska": {
+      "territory": "Central",
+      "mds": [
+        "Brian Doss"
+      ],
+      "pm": "Bobby Kelley"
+    },
+    "North Dakota": {
+      "territory": "Midwest",
+      "mds": [
+        "Bryan Manke"
+      ],
+      "pm": "Seth Miller"
+    },
+    "South Dakota": {
+      "territory": "Midwest",
+      "mds": [
+        "Bryan Manke"
+      ],
+      "pm": "Seth Miller"
+    },
+    "Minnesota": {
+      "territory": "Midwest",
+      "mds": [
+        "Bryan Manke"
+      ],
+      "pm": "Seth Miller"
+    },
+    "Iowa": {
+      "territory": "Midwest",
+      "mds": [
+        "Hunter Johnston"
+      ],
+      "pm": "Seth Miller"
+    },
+    "Wisconsin": {
+      "territory": "Midwest",
+      "mds": [
+        "Bryan Manke"
+      ],
+      "pm": "Seth Miller"
+    },
+    "Illinois": {
+      "territory": "Midwest",
+      "mds": [
+        "Hunter Johnston"
+      ],
+      "pm": "Tim Smith"
+    },
+    "Indiana": {
+      "territory": "Midwest",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "pm": "Tim Smith"
+    },
+    "Michigan": {
+      "territory": "Midwest",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "pm": "Tim Smith"
+    },
+    "Texas": {
+      "territory": "South Central",
+      "mds": [
+        "Kellie Martin",
+        "Peyton McBurnett",
+        "Timothy McKenzie"
+      ],
+      "pm": "Matt Bean"
+    },
+    "Oklahoma": {
+      "territory": "South Central",
+      "mds": [
+        "Joey Ribbens"
+      ],
+      "pm": "Seth Miller"
+    },
+    "Arkansas": {
+      "territory": "South Central",
+      "mds": [
+        "Joey Ribbens"
+      ],
+      "pm": "Seth Miller"
+    },
+    "Maine": {
+      "territory": "Northeast",
+      "mds": [
+        "Patrick Woodring"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Vermont": {
+      "territory": "Northeast",
+      "mds": [
+        "Patrick Woodring"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "New Hampshire": {
+      "territory": "Northeast",
+      "mds": [
+        "Patrick Woodring"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Massachusetts": {
+      "territory": "Northeast",
+      "mds": [
+        "Patrick Woodring"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "New York": {
+      "territory": "Northeast",
+      "mds": [
+        "Griffin Wenger"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Connecticut": {
+      "territory": "Northeast",
+      "mds": [
+        "Patrick Woodring"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Rhode Island": {
+      "territory": "Northeast",
+      "mds": [
+        "Patrick Woodring"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Pennsylvania": {
+      "territory": "Northeast",
+      "mds": [
+        "Griffin Wenger"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "New Jersey": {
+      "territory": "Northeast",
+      "mds": [
+        "Griffin Wenger"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Maryland": {
+      "territory": "Northeast",
+      "mds": [
+        "Griffin Wenger"
+      ],
+      "pm": "Nick Framel"
+    },
+    "Virginia": {
+      "territory": "Northeast",
+      "mds": [
+        "Griffin Wenger"
+      ],
+      "pm": "Nick Framel"
+    },
+    "Delaware": {
+      "territory": "Northeast",
+      "mds": [
+        "Griffin Wenger"
+      ],
+      "pm": "Nick Framel"
+    },
+    "District of Columbia": {
+      "territory": "Northeast",
+      "mds": [
+        "Griffin Wenger"
+      ],
+      "pm": "Nick Framel"
+    },
+    "North Carolina": {
+      "territory": "Southeast",
+      "mds": [
+        "Jim Boyd"
+      ],
+      "pm": "Dustin Mullinax"
+    },
+    "South Carolina": {
+      "territory": "Southeast",
+      "mds": [
+        "Jim Boyd"
+      ],
+      "pm": "Dustin Mullinax"
+    },
+    "Tennessee": {
+      "territory": "Southeast",
+      "mds": [
+        "Derric Rankins"
+      ],
+      "pm": "Nick Framel"
+    },
+    "Mississippi": {
+      "territory": "Southeast",
+      "mds": [
+        "Patrick Hale"
+      ],
+      "pm": "Nick Framel"
+    },
+    "Louisiana": {
+      "territory": "Southeast",
+      "mds": [
+        "Patrick Hale"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Alabama": {
+      "territory": "Southeast",
+      "mds": [
+        "Shane Oliver"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Georgia": {
+      "territory": "Southeast",
+      "mds": [
+        "Shane Oliver"
+      ],
+      "pm": "Dustin Mullinax"
+    },
+    "Florida": {
+      "territory": "Southeast",
+      "mds": [
+        "Open"
+      ],
+      "pm": "Dustin Mullinax"
+    },
+    "British Columbia": {
+      "territory": "Canada West",
+      "mds": [
+        "Timothy Algoe"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Alberta": {
+      "territory": "Canada West",
+      "mds": [
+        "Timothy Algoe"
+      ],
+      "pm": "Jason Goins"
+    },
+    "Saskatchewan": {
+      "territory": "Canada West",
+      "mds": [
+        "Timothy Algoe"
+      ],
+      "pm": "Tim Smith"
+    },
+    "Manitoba": {
+      "territory": "Canada West",
+      "mds": [
+        "Timothy Algoe"
+      ],
+      "pm": "Tim Smith"
+    },
+    "Ontario": {
+      "territory": "Canada Central",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Quebec": {
+      "territory": "Canada East",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "New Brunswick": {
+      "territory": "Canada East",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "pm": ""
+    },
+    "Nova Scotia": {
+      "territory": "Canada East",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "pm": "Nick Phillips"
+    },
+    "Prince Edward Island": {
+      "territory": "Canada East",
+      "mds": [
+        "Kris Hobbins"
+      ],
+      "pm": ""
+    }
+  },
+  "people": {
+    "Timothy Algoe": {
+      "photo": "timothy-algoe.jpg"
+    },
+    "Sean Russell": {
+      "photo": "sean-russell.jpg"
+    },
+    "Marcus Tejeda": {
+      "photo": "marcus-tejeda.png"
+    },
+    "Kit Cranford": {
+      "photo": "kit-cranford.png"
+    },
+    "Melissa Busch": {
+      "photo": "melissa-busch.jpg"
+    },
+    "Bryan Manke": {
+      "photo": "bryan-manke.jpg"
+    },
+    "Kris Hobbins": {
+      "photo": "kris-hobbins.png"
+    },
+    "Brian Doss": {
+      "photo": "brian-doss.png"
+    },
+    "Brian Fillous": {
+      "photo": "brian-fillous.jpg"
+    },
+    "Hunter Johnston": {
+      "photo": "hunter-johnston.jpg"
+    },
+    "Peyton McBurnett": {
+      "photo": "peyton-mcburnett.jpg"
+    },
+    "Joey Ribbens": {
+      "photo": "joey-ribbons.jpg"
+    },
+    "Kellie Martin": {
+      "photo": "kellie-martin.jpg"
+    },
+    "Timothy McKenzie": {
+      "photo": "timothy-mckenzie.jpg"
+    },
+    "Patrick Hale": {
+      "photo": "patrick-hale.jpg"
+    },
+    "Shane Oliver": {
+      "photo": "shane-oliver.jpg"
+    },
+    "Derric Rankins": {
+      "photo": "derrik-rankins.jpg"
+    },
+    "Jim Boyd": {
+      "photo": "jim-boyd.jpg"
+    },
+    "Griffin Wenger": {
+      "photo": "griffin-wenger.jpg"
+    },
+    "Patrick Woodring": {
+      "photo": "patrick-woodring.jpg"
+    },
+    "Bryan Weygand": {
+      "photo": "bryan-weygand.jpg"
+    },
+    "David Phornsutiphaijit": {
+      "photo": "david-phornsutiphaijit.jpg"
+    },
+    "Trevor McCauley": {
+      "photo": "trevor-mccauley.jpg"
+    },
+    "Jared Hood": {
+      "photo": "jared-hood.jpg"
+    },
+    "Lance McGee": {
+      "photo": "lance-mcgee.jpg"
+    },
+    "Jose Rodriguez": {
+      "photo": "jose-rodriguez.jpg"
+    },
+    "Jason Goins": {
+      "photo": "jason-goins.jpg",
+      "role": "Commercial Industrial"
+    },
+    "Matthew James": {
+      "photo": "matt-james.png",
+      "role": "Commercial Industrial"
+    },
+    "Bobby Kelley": {
+      "photo": "bobby-kelley.png",
+      "role": "High Security"
+    },
+    "Seth Miller": {
+      "photo": "seth-miller.jpg",
+      "role": "High Security"
+    },
+    "Tim Smith": {
+      "photo": "tim-smith.png",
+      "role": "High Security"
+    },
+    "Matt Bean": {
+      "photo": "matt-bean.jpg",
+      "role": "High Security"
+    },
+    "Nick Phillips": {
+      "photo": "nicholas-phillips.jpg",
+      "role": "High Security"
+    },
+    "Nick Framel": {
+      "photo": "nick-framel.jpg",
+      "role": "High Security"
+    },
+    "Dustin Mullinax": {
+      "photo": "dustin-mullinax.jpg",
+      "role": "Commercial Industrial"
+    }
+  }
+}
